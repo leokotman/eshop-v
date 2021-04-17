@@ -23,6 +23,10 @@ export default {
     name: 'Header',
     props:{
         goods: Array,
+        value: {
+            type: String,
+            default: ''
+        },
     },
     components: {
         Menu,

@@ -1,7 +1,7 @@
 <template>
     <div class="search">
-		<input type="text" class="goods-search" />
-		<button class="search-button" type="button" v-on:click="filter" >Search</button>
+		<input type="text" class="goods-search" v-model="searchText"/>
+		<button class="search-button" type="button" v-on:click="search">Search</button>
 	</div>
 </template>
 
@@ -11,11 +11,16 @@ export default {
     props: {
         goods: Array,
     },
+    data(){
+        return {
+            searchText: '',
+        }
+    },
     methods: {
-        filter(){
-            console.log('filter worked');
+        search(){
+            console.log('filter works');
         },
-    }
+    },
 }
 </script>
 
