@@ -2,7 +2,7 @@
    <header class="page_header">
        <img src="/" alt="logo">
         <Menu />
-        <Search goods="goods"/>
+        <Search :goods='goods'/>
         <div class="header_cart">
             <button class="cart-button" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -21,10 +21,8 @@ import Search from './Search';
 
 export default {
     name: 'Header',
-    data: function(){
-        return {
-            goods: ['socks', 'boots'],
-        };
+    props:{
+        goods: Array,
     },
     components: {
         Menu,
