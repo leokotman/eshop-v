@@ -1,7 +1,7 @@
 <template>
     <div class="search">
-		<input type="text" class="goods-search" v-model="searchText"/>
-		<button class="search-button" type="button" v-on:click="search">Search</button>
+		<input type="text" class="goods-search" v-model="searchText" value="searchText"/>
+		<button class="search-button" type="button" @click="search(searchText)" :value="searchText">Search</button>
 	</div>
 </template>
 
@@ -17,13 +17,10 @@ export default {
         }
     },
     methods: {
-        search(){
-            console.log('filter works');
+        search(searchText){
+            console.log('search from Search works');
+            this.$emit('search-content', searchText);
         },
     },
 }
 </script>
-
-<style>
-
-</style>

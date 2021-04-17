@@ -3,7 +3,7 @@
         <span><a href="#">Home</a></span>
         <span><a href="#">Products</a></span>
         <span><a href="#">About us</a></span>
-        <span><a href="#">Contacts</a></span>        
+        <span><a href="#">Contacts</a></span>
     </nav>
 </template>
 

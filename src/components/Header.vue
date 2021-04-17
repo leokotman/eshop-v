@@ -2,7 +2,7 @@
    <header class="page_header">
        <img src="/" alt="logo">
         <Menu />
-        <Search :goods='goods'/>
+        <Search :goods='goods' @search-content="search"/>
         <div class="header_cart">
             <button class="cart-button" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -11,7 +11,7 @@
             </button>
             <span class="items_count"></span>
         </div>
-    </header> 
+    </header>
 </template>
 
 <script>
@@ -31,6 +31,12 @@ export default {
     components: {
         Menu,
         Search
+    },
+    methods: {
+        search(searchText) {
+            console.log('search from Header works');
+            this.$emit('header-search', searchText);
+        }
     }
 };
 </script>
