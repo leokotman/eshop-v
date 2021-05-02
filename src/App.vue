@@ -1,40 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Header :goods='goods' @header-search="filteredContent"/>
     <ul v-if="noSearchWorked">
-      <li v-for="good in goods" v-bind:key="good.id"> {{good.name}}</li>
+      <li v-for="good in goods" v-bind:key="good.id_product"> {{good.product_name}} {{good.price}}</li>
     </ul>
     <ul v-else>
-      <li v-for="good in filteredGoods" v-bind:key="good.id"> {{ good.name }} </li>
+      <li v-for="good in filteredGoods" v-bind:key="good.id_product"> {{ good.product_name }} {{good.price}} </li>
     </ul>
 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 import Header from './components/Header';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Header,
   },
   data: function(){
     return {
-      goods: [
-        {
-          id: 0,
-          name: 'socks'
-        },
-        {
-          id: 1,
-          name: 'boots'
-        },
-      ],
+      goods: [],
       filteredGoods: [],
       noSearchWorked: true,
     };
@@ -43,18 +30,26 @@ export default {
     filteredContent(searchText){
       console.log(searchText);
       let searchedGoods = this.goods.filter(good => {
-        return good.name.includes(searchText);
+        return good.product_name.includes(searchText);
       });
       this.filteredGoods = searchedGoods;
       this.noSearchWorked = false;
-    }
+    },
+    fetchGoods() {
+      fetch('https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json')
+        .then(response => response.json())
+        .then(data => (this.goods = data));
+    },
+  },
+  mounted () {
+    this.fetchGoods();
   },
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
