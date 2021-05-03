@@ -2,28 +2,23 @@
   <div id="app">
     <Header :goods='goods' @header-search="filterContent" @open-cart="openCart" />
     <Cart v-show="cartOpened"/>
-    <ul v-if="noSearchWorked">
-      <li v-for="good in goods" v-bind:key="good.id_product">
-         {{ good.product_name}}
-         {{good.price}}</li>
-    </ul>
-    <ul v-else>
-      <li v-for="good in filteredGoods" v-bind:key="good.id_product">
-        {{ good.product_name }}
-        {{good.price}} </li>
-    </ul>
+    <Products :no-search-worked="noSearchWorked"
+    :goods="goods"
+    :filtered-goods="filteredGoods" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header';
 import Cart from './components/Cart';
+import Products from './components/Products';
 
 export default {
   name: 'App',
   components: {
     Header,
     Cart,
+    Products,
   },
   data: function(){
     return {
