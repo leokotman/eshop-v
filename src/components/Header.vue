@@ -18,7 +18,6 @@
 import Menu from './Menu';
 import Search from './Search';
 
-
 export default {
     name: 'Header',
     props:{

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Products</h2>
     <ul v-if="noSearchWorked">
       <li v-for="good in goods" v-bind:key="good.id_product">
         <h3>{{ good.product_name }}</h3>
@@ -39,11 +40,9 @@ export default {
   },
   methods: {
     addProduct(event) {
-      console.log("add to cart on product works");
       let addedProduct = this._findProductInfo(event);
       console.log(addedProduct);
       this.products.push(addedProduct);
-      console.log(this.$data);
       this.$emit("add-product", this.$data);
     },
     _findProductInfo(event) {
