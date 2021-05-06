@@ -1,6 +1,6 @@
 <template>
     <div class="search">
-		<input type="text" class="goods-search" v-model="searchText" value="searchText"/>
+		<input type="text" class="goods-search" v-model="searchText" value="searchText" @input="search(searchText)" />
 		<button class="search-button" type="button" @click="search(searchText)" :value="searchText">Search</button>
 	</div>
 </template>
@@ -18,7 +18,6 @@ export default {
     },
     methods: {
         search(searchText){
-            console.log('search from Search works');
             this.$emit('search-content', searchText);
         },
     },
