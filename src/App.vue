@@ -13,6 +13,7 @@
       :goods-in-cart="goodsInCart"
       @add-product="addToCart"
     />
+    <ToBuy />
   </div>
 </template>
 
@@ -20,6 +21,7 @@
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Products from "./components/Products";
+import ToBuy from "./components/ToBuy";
 
 export default {
   name: "App",
@@ -27,6 +29,7 @@ export default {
     Header,
     Cart,
     Products,
+    ToBuy,
   },
   data: function() {
     return {
@@ -73,7 +76,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
