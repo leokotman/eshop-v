@@ -65,7 +65,6 @@ export default {
     },
     addToCart() {
       console.log(this.goodsInCart);
-      console.log("goods pushed in goodsInCart");
     },
   },
   mounted() {
