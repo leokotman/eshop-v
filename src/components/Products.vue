@@ -41,7 +41,6 @@ export default {
   methods: {
     addProduct(event) {
       let addedProduct = this._findProductInfo(event);
-      console.log(addedProduct);
       this.products.push(addedProduct);
       this.$emit("add-product", this.$data);
     },
